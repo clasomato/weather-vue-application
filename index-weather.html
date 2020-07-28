@@ -6,10 +6,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/weather-icons.min.css">
 	<title>Weather Forecasting</title>
+
+	<!-- Mapbox Stuff -->
+	<script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
 
 	<!-- Parent Div Begins -->
+	<div class="loadingGIFContainer" id="loading" style="display:flex; align-items:center; justify-content:center; width:100%; height:100vh;">
+		<img src="loading.gif" alt=""  width="20%">
+	</div>
+
 	<div class="parent" id="app" v-if="weather">
 		<!-- Weather UI HTML -->
 		<div class="weather-widget" v-bind:class="{active: isActive, 'dark-theme': isDark}">
@@ -114,97 +122,15 @@
 		</div>
 	<!-- WeatherUI HTML ENDS -->
   </div>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="js/custom.js"></script>
 
 	<script>
-		(function(){
-			// New vue app
-			var app = new Vue({
-				el: '#app',
-				data: {
-					weather: false,
-					month: false,
-					days: false,
-					dayDates: false,
-					title: 'cold',
-					isActive: false,
-					isDark: true
-				},
-				methods: {
-					alertThing: function () {
-						alert('wow')
-						// console.log(this)
-					}
-				}
-			});
 
-		 function makeAjaxRequest () {
-		    // GET request for remote image in node.js
-		    axios({
-		      method: 'get',
-		      url: 'https://api.openweathermap.org/data/2.5/onecall?lat=-41.282626&lon=-174.773390&units=metric&exclude=hourly,minute&appid=66ce6f7e945db003aaa343f0bc010dc8'
-		    }).then(function (response) {
-					app.weather = response
-		      console.log(response.data)
-					weatherCheck(response.data)
-		    });
-		  } // makeAjaxRequest ENDS
-
-		  makeAjaxRequest();
-
-
-
-
-
-			function weatherCheck (data) {
-				console.log(data);
-				// Has 8 checks
-				if(data.daily[0].weather[0].description.includes('sun')) {
-					alert('rain spotted');
-					$('panelOne')
-				}
-
-			  if(data.daily[0].weather[0].description.includes('sun')) {
-					alert('rain spotted');
-				}
-			}
-
-
-
-
-
-
-			// MomentJSTime
-			function getDaysnDates () {
-				var now = moment()
-				var dates = []
-				var days = []
-				var daysRequired = 8
-
-				for (var i = 1; i <= daysRequired; i++) {
-					dates.push( moment().add(i, 'days').format('Do MMMM YYYY'))
-					app.dayDates = {
-						i: dates
-					}
-				}
-
-				for (var i = 1; i <= daysRequired; i++) {
-					days.push( moment().add(i, 'days').format('dddd'))
-					app.days = {
-						i: days
-					}
-				}
-
-				console.log(app.days)
-			} // getDaysnDates ENDS
-
-
-
-			getDaysnDates()
-		}()); // iffe function ENDS
 	</script>
 </body>
 </html>
