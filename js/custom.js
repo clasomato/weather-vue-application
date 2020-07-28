@@ -10,7 +10,8 @@
       title: 'cold',
       isActive: false,
       isDark: true,
-      cityLocation: false
+      cityLocation: false,
+      icons: false
     },
     methods: {
       alertThing: function () {
@@ -65,6 +66,21 @@
       weatherCheck(response.data)
       makeMapBoxRequest()
       endLoading()
+
+      // Get Icons STARTS
+      function getIcons () {
+        var icons = []
+        for (var i = 0; i < 8; i++) {
+          var iconCode = response.data.daily[i].weather[0].icon
+          var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+          icons.push(iconUrl)
+        }
+        app.icons = icons;
+
+        console.log("http://openweathermap.org/img/wn/" + iconCode + "@2x.png")
+        console.log(app.icons)
+      } // Get Icons ENDS
+      getIcons()
     });
   } // makeAjaxRequest ENDS
 
@@ -97,7 +113,6 @@
       alert('rain spotted');
     }
   }
-
 
 
 

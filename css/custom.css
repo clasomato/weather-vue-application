@@ -25,8 +25,7 @@ body {
   width: 25%; }
 
 .weather-icon {
-  font-size: 5rem;
-  animation: rotation 5s infinite linear; }
+  font-size: 5rem; }
 
 .temp-c {
   margin-bottom: 20px; }

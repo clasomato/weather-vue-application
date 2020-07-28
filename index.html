@@ -22,9 +22,9 @@
 		<!-- Weather UI HTML -->
 		<div class="weather-widget" v-bind:class="{active: isActive, 'dark-theme': isDark}">
 		  <div class="weather-icon row">
-		    <i class="wi wi-day-sunny" id="icon1"></i>
+		    <img class="wi wi-day-sunny" v-bind:src="icons[0]" id="icon1"></img>
 		  </div>
-		  <h1 class="temp-c row" v-bind:title="title">{{ weather.data.daily[0].temp.day.toFixed(0) }}</h1>
+		  <h1 class="temp-c row" v-bind:title="title">{{ weather.data.daily[0].temp.day.toFixed(0) }}°C</h1>
 		  <h5 class="condition row">{{ weather.data.daily[0].weather[0].description }}</h5>
 		  <h3 class="location-name row">{{ cityLocation }}</h3>
 		  <h5 class="location-country row">New Zealand </h5>
@@ -37,7 +37,7 @@
 		      <h6>{{ dayDates.i[0] }}</h6>
 		    </div>
 		    <div class="forecast">
-		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[1].temp.day.toFixed(0) }}C
+		      <img class="wi wi-night-sleet" v-bind:src="icons[1]" width="40%"></img> {{ weather.data.daily[1].temp.day.toFixed(0) }}C
 		      <h6>{{ weather.data.daily[1].weather[0].description }}</h6>
 		    </div>
 		  </div>
@@ -48,7 +48,7 @@
 		      <h6>{{ dayDates.i[1] }}</h6>
 		    </div>
 		    <div class="forecast">
-		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[2].temp.day.toFixed(0) }}C
+		      <img class="wi wi-night-sleet" v-bind:src="icons[2]" width="40%"></img> {{ weather.data.daily[2].temp.day.toFixed(0) }}C
 		      <h6>{{ weather.data.daily[2].weather[0].description }}</h6>
 		    </div>
 		  </div>
@@ -59,7 +59,7 @@
 		      <h6>{{ dayDates.i[2] }}</h6>
 		    </div>
 		    <div class="forecast">
-		      <i class="wi wi-day-thunderstorm"></i> {{ weather.data.daily[3].temp.day.toFixed(0) }}C
+		      <img class="wi wi-day-thunderstorm" v-bind:src="icons[3]" width="40%"></img> {{ weather.data.daily[3].temp.day.toFixed(0) }}C
 		      <h6>{{ weather.data.daily[3].weather[0].description }}</h6>
 		    </div>
 		  </div>
@@ -70,7 +70,7 @@
 		      <h6>{{ dayDates.i[3] }}</h6>
 		    </div>
 		    <div class="forecast">
-		      <i class="wi wi-day-sunny"></i> {{ weather.data.daily[4].temp.day.toFixed(0) }}C
+		      <img class="wi" v-bind:src="icons[4]" width="40%"></img> {{ weather.data.daily[4].temp.day.toFixed(0) }}C
 		      <h6>{{ weather.data.daily[4].weather[0].description }}</h6>
 		    </div>
 		  </div>
@@ -81,7 +81,7 @@
 		      <h6>{{ dayDates.i[4] }}</h6>
 		    </div>
 		    <div class="forecast">
-		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[5].temp.day.toFixed(0) }}C
+		      <img class="wi wi-night-sleet" v-bind:src="icons[5]" width="40%"></img> {{ weather.data.daily[5].temp.day.toFixed(0) }}C
 		      <h6>{{ weather.data.daily[5].weather[0].description }}</h6>
 		    </div>
 		  </div>
@@ -92,7 +92,7 @@
 		      <h6>{{ dayDates.i[5] }}</h6>
 		    </div>
 		    <div class="forecast">
-		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[6].temp.day.toFixed(0) }}C
+		      <img class="wi wi-night-sleet" v-bind:src="icons[6]" width="40%"></img> {{ weather.data.daily[6].temp.day.toFixed(0) }}C
 		      <h6>{{ weather.data.daily[6].weather[0].description }}</h6>
 		    </div>
 		  </div>
@@ -103,7 +103,7 @@
 		      <h6>{{ dayDates.i[6] }}</h6>
 		    </div>
 		    <div class="forecast">
-		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[7].temp.day.toFixed(0) }}C
+		      <img class="wi wi-night-sleet" v-bind:src="icons[7]" width="40%"></img> {{ weather.data.daily[7].temp.day.toFixed(0) }}C
 		      <h6>{{ weather.data.daily[7].weather[0].description }}</h6>
 		    </div>
 		  </div>
@@ -114,7 +114,7 @@
 		      <h6>{{ dayDates.i[7] }}</h6>
 		    </div>
 		    <div class="forecast">
-		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[3].temp.day.toFixed(0) }}C
+		      <img class="wi wi-night-sleet" v-bind:src="icons[8]" width="40%"></img> {{ weather.data.daily[3].temp.day.toFixed(0) }}C
 		      <h6>{{ weather.data.daily[4].weather[0].description }}</h6>
 		    </div>
 		  </div>
