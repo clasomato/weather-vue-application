@@ -9,7 +9,8 @@
       dayDates: false,
       title: 'cold',
       isActive: false,
-      isDark: true
+      isDark: true,
+      cityLocation: false
     },
     methods: {
       alertThing: function () {
@@ -72,9 +73,10 @@
 		 // GET request for remote image in node.js
 		 axios({
 			 method: 'get',
-			 url: 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+locationData.logn+','+locationData.lat+'.json?types=poi&access_token=pk.eyJ1IjoiY2xhc29tYXRvIiwiYSI6ImNrYjcydmFvcjAwM3MycHJ3Zmw3anRmcHMifQ.ZbUl2oewd_oHIQou0d5fPQ'
+			 url: 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+locationData.logn+','+locationData.lat+'.json?types=poi&access_token=pk.eyJ1IjoiY2xhc29tYXRvIiwiYSI6ImNrYjczZjNzeTAxdXkycWtjZXZqMW93bjMifQ.GKDp48PUnWCG9OBFMkN-_Q'
 		 }).then(function (response) {
 			 console.log(response)
+       app.cityLocation = response.data.features[0].context[3].text
 		 });
 	 } // makeAjaxRequest ENDS
 
