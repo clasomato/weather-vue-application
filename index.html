@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/custom.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/weather-icons.min.css">
+	<title>Weather Forecasting</title>
+
+	<!-- Mapbox Stuff -->
+	<script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+	<!-- Parent Div Begins -->
+	<div class="loadingGIFContainer" id="loading" style="display:flex; align-items:center; justify-content:center; width:100%; height:100vh;">
+		<img src="loading.gif" alt=""  width="20%">
+	</div>
+
+	<div class="parent" id="app" v-if="weather">
+		<!-- Weather UI HTML -->
+		<div class="weather-widget" v-bind:class="{active: isActive, 'dark-theme': isDark}">
+		  <div class="weather-icon row">
+		    <i class="wi wi-day-sunny" id="icon1"></i>
+		  </div>
+		  <h1 class="temp-c row" v-bind:title="title">{{ weather.data.daily[0].temp.day.toFixed(0) }}</h1>
+		  <h5 class="condition row">{{ weather.data.daily[0].weather[0].description }}</h5>
+		  <h3 class="location-name row">{{ cityLocation }}</h3>
+		  <h5 class="location-country row">New Zealand </h5>
+		</div>
+		<div class="weather-forecast">
+
+		  <div class="forecast-item">
+		    <div class="day">
+		      <h4>Tomorrow</h4>
+		      <h6>{{ dayDates.i[0] }}</h6>
+		    </div>
+		    <div class="forecast">
+		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[1].temp.day.toFixed(0) }}C
+		      <h6>{{ weather.data.daily[1].weather[0].description }}</h6>
+		    </div>
+		  </div>
+
+		  <div class="forecast-item">
+		    <div class="day">
+		      <h4>{{ days.i[1] }}</h4>
+		      <h6>{{ dayDates.i[1] }}</h6>
+		    </div>
+		    <div class="forecast">
+		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[2].temp.day.toFixed(0) }}C
+		      <h6>{{ weather.data.daily[2].weather[0].description }}</h6>
+		    </div>
+		  </div>
+
+		  <div class="forecast-item">
+		    <div class="day">
+		      <h4>{{ days.i[2] }}</h4>
+		      <h6>{{ dayDates.i[2] }}</h6>
+		    </div>
+		    <div class="forecast">
+		      <i class="wi wi-day-thunderstorm"></i> {{ weather.data.daily[3].temp.day.toFixed(0) }}C
+		      <h6>{{ weather.data.daily[3].weather[0].description }}</h6>
+		    </div>
+		  </div>
+
+		  <div class="forecast-item">
+		    <div class="day">
+		      <h4>{{ days.i[3] }}</h4>
+		      <h6>{{ dayDates.i[3] }}</h6>
+		    </div>
+		    <div class="forecast">
+		      <i class="wi wi-day-sunny"></i> {{ weather.data.daily[4].temp.day.toFixed(0) }}C
+		      <h6>{{ weather.data.daily[4].weather[0].description }}</h6>
+		    </div>
+		  </div>
+
+		  <div class="forecast-item">
+		    <div class="day">
+		      <h4>{{ days.i[4] }}</h4>
+		      <h6>{{ dayDates.i[4] }}</h6>
+		    </div>
+		    <div class="forecast">
+		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[5].temp.day.toFixed(0) }}C
+		      <h6>{{ weather.data.daily[5].weather[0].description }}</h6>
+		    </div>
+		  </div>
+
+		  <div class="forecast-item">
+		    <div class="day">
+		      <h4>{{ days.i[5] }}</h4>
+		      <h6>{{ dayDates.i[5] }}</h6>
+		    </div>
+		    <div class="forecast">
+		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[6].temp.day.toFixed(0) }}C
+		      <h6>{{ weather.data.daily[6].weather[0].description }}</h6>
+		    </div>
+		  </div>
+
+		  <div class="forecast-item">
+		    <div class="day">
+		      <h4>{{ days.i[6] }}</h4>
+		      <h6>{{ dayDates.i[6] }}</h6>
+		    </div>
+		    <div class="forecast">
+		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[7].temp.day.toFixed(0) }}C
+		      <h6>{{ weather.data.daily[7].weather[0].description }}</h6>
+		    </div>
+		  </div>
+
+		  <div class="forecast-item">
+		    <div class="day">
+		      <h4>{{ days.i[7] }}</h4>
+		      <h6>{{ dayDates.i[7] }}</h6>
+		    </div>
+		    <div class="forecast">
+		      <i class="wi wi-night-sleet"></i> {{ weather.data.daily[3].temp.day.toFixed(0) }}C
+		      <h6>{{ weather.data.daily[4].weather[0].description }}</h6>
+		    </div>
+		  </div>
+
+		</div>
+	<!-- WeatherUI HTML ENDS -->
+  </div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="js/custom.js"></script>
+
+	<script>
+
+	</script>
+</body>
+</html>
